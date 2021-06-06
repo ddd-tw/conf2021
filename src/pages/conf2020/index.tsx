@@ -2,7 +2,6 @@
 import bg from "!file-loader!./bg.svg";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import commonBg from "!file-loader!@site/src/bg/common.svg";
-import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 import Link from "@docusaurus/Link";
 import { css } from "@emotion/css";
 import {
@@ -27,8 +26,6 @@ const description =
   "第一屆的年會，我們的主軸會希望能讓更多人知道何謂領域驅動設計(DDD)，以及讓更多人意識到其實 DDD 真的不是只是一票技術人員寫寫程式，關注程式碼本身結構性的問題而已，所以預計會有演講與工作坊並進的方式來進行。今年我們預計有機會邀請到來自 DDD_Eu 、中國等地的講者，並且同時結合台灣對於領域驅動設計長年有研究並且有意願與大家分享的老朋友們，一起與大家共同探討這個已經出生了10多年的老方法能給大家帶來的新體驗與感受。";
 
 const breakingWidth = 640;
-const isServer = !ExecutionEnvironment.canUseDOM;
-const initWidth = isServer ? breakingWidth + 1 : window.innerWidth;
 
 const cssSplash = css`
   label: Splash;
@@ -77,8 +74,8 @@ const videoIds = ["ezEALMvRxJY", "WZzdLfewgfw"];
 
 export default memo(() => {
   const [value, setValue] = useState(0);
-  const [width, setWidth] = useState(initWidth);
-  const wide = width > breakingWidth;
+  const [width, setWidth] = useState<number>(undefined);
+  const wide = width === undefined || width > breakingWidth;
   const refYT = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!refYT.current) return;
