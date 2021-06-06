@@ -3,7 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm i -g pnpm
+        - nvm install 16.3.0
+        - nvm use 16.3.0
+        - npm i -g pnpm@6.7.1
         - pnpm i
     build:
       commands:
