@@ -81,7 +81,6 @@ export default memo(() => {
   const wide = width > breakingWidth;
   const refYT = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (isServer) return;
     if (!refYT.current) return;
     const player = new YT.Player(refYT.current, {
       height: "100%",
@@ -103,10 +102,9 @@ export default memo(() => {
     };
   }, [value]);
   useEffect(() => {
-    if (isServer) return;
     let cancel = false;
     const handleResize = () => {
-      if (cancel || isServer) return;
+      if (cancel) return;
       setWidth(window.innerWidth);
     };
     handleResize();
