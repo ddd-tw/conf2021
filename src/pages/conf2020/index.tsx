@@ -179,6 +179,8 @@ export default memo(() => {
               display="flex"
               flexWrap="nowrap"
               flexDirection="column"
+              alignItems="center"
+              textAlign="center"
               gap={3}
             >
               <Typography variant="h1">{title}</Typography>
