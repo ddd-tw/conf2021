@@ -109,6 +109,7 @@ export default memo(() => {
       if (cancel || isServer) return;
       setWidth(window.innerWidth);
     };
+    handleResize();
     const throttleResize = throttle(handleResize, 300);
     window.addEventListener("resize", throttleResize);
     return () => {
