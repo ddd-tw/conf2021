@@ -14,6 +14,7 @@ import {
   TabsProps,
   Typography,
 } from "@material-ui/core";
+import A from "@site/src/component/A";
 import Dark from "@site/src/component/Dark";
 import FootPrintsVertical from "@site/src/component/FootPrintVertical/FootPrintsVertical";
 import Layout from "@site/src/component/Layout";
@@ -184,9 +185,32 @@ export default memo(() => {
             </Box>
           </Container>
           <FootPrintsVertical size={4} />
-          <Box width="fit-content" pt={6} pb={24} m="auto">
-            <Link to="/">
+          <Box
+            width="fit-content"
+            pt={6}
+            pb={24}
+            m="auto"
+            display="flex"
+            flexWrap="nowrap"
+            flexDirection="column"
+            alignItems="center"
+            gap={3}
+          >
+            <A href="https://conf2020.ddd-tw.com">
               <Button variant="contained" size="large" className={cssBackLink}>
+                <Typography variant="h4" component="span">
+                  回到 2020
+                </Typography>
+              </Button>
+            </A>
+            <FootPrintsVertical size={4} />
+            <Link to="/">
+              <Button
+                variant="contained"
+                size="large"
+                color="secondary"
+                className={cssBackLink}
+              >
                 <Box
                   display="flex"
                   flexDirection="column"
@@ -196,7 +220,7 @@ export default memo(() => {
                 >
                   <Rocket fontSize="inherit" />
                   <Typography variant="h3" component="span">
-                    回到 2021
+                    前進 2021
                   </Typography>
                 </Box>
               </Button>
