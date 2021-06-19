@@ -35,13 +35,8 @@ html[data-theme="dark"] {
 
 .navbar__brand:hover,
 .navbar__link:hover,
-.navbar__link--active,
-.footer__link-item:hover {
+.navbar__link--active {
   color: var(--ifm-color-primary-lighter);
-}
-
-.footer--dark {
-  --ifm-footer-background-color: var(--ifm-navbar-background-color);
 }
 
 a {
