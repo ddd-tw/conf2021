@@ -189,37 +189,40 @@ export default function Home() {
         alignItems="flex-center"
         sx={{ background: `url(${commonBg})`, backgroundSize: "cover" }}
       >
-        <Box
-          width="fit-content"
-          bgcolor="var(--text-bg)"
-          borderRadius={4}
-          margin="auto"
-          pt={3}
-          pb={4}
-          pr={2}
-          pl={2}
-          gap={4}
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <Box display="flex" gap={1} alignItems="center">
-            <CalendarToday />
-            <Typography component="div">{"2021 10/15, 10/16"}</Typography>
-          </Box>
-          <Button variant="contained" disabled>
-            <Box display="flex" flexDirection="column">
-              <Typography variant="inherit">{"馬上加入"}</Typography>
-              <Typography
-                className={css`
-                  font-size: 0.5em;
-                `}
-              >
-                {"敬請期待"}
-              </Typography>
+        <Container>
+          <Box
+            width="fit-content"
+            bgcolor="var(--text-bg)"
+            borderRadius={4}
+            margin="auto"
+            pt={3}
+            pb={4}
+            pr={2}
+            pl={2}
+            gap={4}
+            display="flex"
+            flexWrap="wrap"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Box display="flex" gap={1} alignItems="center">
+              <CalendarToday />
+              <Typography component="div">{"2021 10/15, 10/16"}</Typography>
             </Box>
-          </Button>
-        </Box>
+            <Button variant="contained" disabled>
+              <Box display="flex" flexDirection="column">
+                <Typography variant="inherit">{"馬上加入"}</Typography>
+                <Typography
+                  className={css`
+                    font-size: 0.5em;
+                  `}
+                >
+                  {"敬請期待"}
+                </Typography>
+              </Box>
+            </Button>
+          </Box>
+        </Container>
         <Container>
           <Box
             gap={3}
@@ -237,7 +240,7 @@ export default function Home() {
               "&>*": {
                 flex: 1,
                 height: "100%",
-                minWidth: 360,
+                minWidth: "min(360px, 100%)",
               },
             }}
           >

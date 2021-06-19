@@ -32,7 +32,12 @@ function Footer() {
   return (
     <Dark>
       <footer className={cssFooter}>
-        <Box display="flex" alignItems="center" justifyContent="center">
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          alignItems="center"
+          justifyContent="center"
+        >
           <IconButton component={A} href="mailto:dddtwconference2020@gmail.com">
             <Email />
           </IconButton>
