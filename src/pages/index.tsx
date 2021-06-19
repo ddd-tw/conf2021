@@ -196,7 +196,7 @@ export default function Home() {
             borderRadius={4}
             margin="auto"
             pt={3}
-            pb={4}
+            pb={3}
             pr={2}
             pl={2}
             gap={4}
@@ -207,11 +207,21 @@ export default function Home() {
           >
             <Box display="flex" gap={1} alignItems="center">
               <CalendarToday />
-              <Typography component="div">{"2021 10/15, 10/16"}</Typography>
+              <Typography component="div">{"10/15, 10/16"}</Typography>
             </Box>
-            <Button variant="contained" disabled>
+            <Button
+              variant="contained"
+              disabled
+              className={css`
+                // ssr issue
+                &:disabled {
+                  color: rgba(255, 255, 255, 0.3);
+                  background-color: rgba(255, 255, 255, 0.12);
+                }
+              `}
+            >
               <Box display="flex" flexDirection="column">
-                <Typography variant="inherit">{"馬上加入"}</Typography>
+                <Typography variant="inherit">{"即刻加入"}</Typography>
                 <Typography
                   className={css`
                     font-size: 0.5em;
