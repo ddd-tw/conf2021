@@ -1,6 +1,4 @@
-// eslint-disable-next-line import/no-webpack-loader-syntax
 import bg from "!file-loader!./bg.svg";
-// eslint-disable-next-line import/no-webpack-loader-syntax
 import commonBg from "!file-loader!@site/src/bg/common.svg";
 import Link from "@docusaurus/Link";
 import { css } from "@emotion/css";
@@ -23,7 +21,7 @@ import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 
 const title = "回顧 2020";
 const description =
-  "第一屆的年會，我們的主軸會希望能讓更多人知道何謂領域驅動設計(DDD)，以及讓更多人意識到其實 DDD 真的不是只是一票技術人員寫寫程式，關注程式碼本身結構性的問題而已，所以預計會有演講與工作坊並進的方式來進行。今年我們預計有機會邀請到來自 DDD_Eu 、中國等地的講者，並且同時結合台灣對於領域驅動設計長年有研究並且有意願與大家分享的老朋友們，一起與大家共同探討這個已經出生了10多年的老方法能給大家帶來的新體驗與感受。";
+  "第一屆的年會，我們的主軸會希望能讓更多人知道何謂領域驅動設計(DDD)，以及讓更多人意識到其實 DDD 真的不是只是一票技術人員寫寫程式，關注程式碼本身結構性的問題而已，所以以演講與工作坊並進的方式來進行。去年我們邀請到來自 DDD_Eu 、中國等地的講者，並且同時結合台灣對於領域驅動設計長年有研究並且有意願與大家分享的老朋友們，一起與大家共同探討這個已經出生了 10 多年的老方法能給大家帶來的新體驗與感受。";
 
 const breakingWidth = 640;
 
@@ -167,7 +165,7 @@ export default memo(() => {
           <Box mt={-12}>
             <FootPrintsVertical size={3} />
           </Box>
-          <Container>
+          <Container maxWidth="md">
             <Box
               pt={3}
               pb={3}
@@ -194,35 +192,40 @@ export default memo(() => {
             alignItems="center"
             gap={3}
           >
-            <A href="https://conf2020.ddd-tw.com">
-              <Button variant="contained" size="large" className={cssBackLink}>
-                <Typography variant="h4" component="span">
-                  回到 2020
-                </Typography>
-              </Button>
-            </A>
-            <FootPrintsVertical size={4} />
-            <Link to="/">
-              <Button
-                variant="contained"
-                size="large"
-                color="secondary"
-                className={cssBackLink}
+            <Button
+              variant="contained"
+              size="large"
+              className={cssBackLink}
+              component={A}
+              href="https://conf2020.ddd-tw.com"
+            >
+              <Typography variant="h4" component="span">
+                回到 2020
+              </Typography>
+            </Button>
+            <FootPrintsVertical size={5} />
+            <Button
+              variant="contained"
+              size="large"
+              color="secondary"
+              className={cssBackLink}
+              component={Link}
+              to="/"
+            >
+              <Box
+                display="flex"
+                flexDirection="column"
+                fontSize="6em"
+                alignItems="center"
+                gap={1}
               >
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  fontSize="6em"
-                  alignItems="center"
-                  gap={1}
-                >
-                  <Rocket fontSize="inherit" />
-                  <Typography variant="h3" component="span">
-                    前進 2021
-                  </Typography>
-                </Box>
-              </Button>
-            </Link>
+                <Rocket fontSize="inherit" />
+                <Typography variant="h3" component="span">
+                  前進 2021
+                </Typography>
+              </Box>
+            </Button>
+            <FootPrintsVertical size={7} />
           </Box>
         </div>
       </Dark>

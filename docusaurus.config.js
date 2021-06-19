@@ -94,4 +94,5 @@ module.exports = {
     "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap",
   ],
   scripts: ["https://www.youtube.com/iframe_api"],
+  plugins: ["@docusaurus/plugin-ideal-image"],
 };

@@ -9,15 +9,19 @@ export type FootProps = FootPrintProps & {
 
 const cssBase = css`
   label: Base;
-  transition: color, opacity, transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: color 5s ease-out, opacity 5s ease-out,
+    transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
   color: #888888;
-  opacity: 0.3;
+  opacity: 0.2;
 `;
 
 const cssActive = css`
   label: Active;
   color: #8afff9;
   transform: scale(1.5);
+  transition: color 0.2s cubic-bezier(0.39, 0.575, 0.565, 1),
+    opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1),
+    transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   opacity: 1;
 `;
 

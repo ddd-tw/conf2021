@@ -10,17 +10,19 @@ export default memo(function FootPrintsVertical({
   size = 7,
 }: FootPrintsVerticalProps) {
   const [step, setStep] = useState(0);
+  // for breaking
+  const extSize = useMemo(() => size + 2, [size]);
   useEffect(() => {
-    if (step >= size) setStep(0);
-  }, [size, step]);
+    if (step >= extSize) setStep(0);
+  }, [extSize, size, step]);
   useEffect(() => {
     const interval = setInterval(() => {
-      setStep((step) => (step + 1) % size);
+      setStep((step) => (step + 1) % (extSize + 2));
     }, 1000);
     return () => {
       clearInterval(interval);
     };
-  }, [size]);
+  }, [extSize, size]);
   const arr = useMemo(() => Array.from(Array(size)), [size]);
   return (
     <Box

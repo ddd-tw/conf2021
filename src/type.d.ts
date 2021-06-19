@@ -1,6 +1,6 @@
 /// <reference types="youtube" />
 
-declare module "*.svg" {
+declare module "!file-loader!*" {
   const str: string;
   export default str;
 }
