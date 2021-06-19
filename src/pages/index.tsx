@@ -10,11 +10,12 @@ import {
   Typography,
   useTheme,
 } from "@material-ui/core";
+import { CalendarToday } from "@material-ui/icons";
 import Layout from "@site/src/component/Layout";
 import Image from "@theme/IdealImage";
 import React, { ReactNode } from "react";
 
-const bannerHeight = "calc(100vh - var(--ifm-navbar-height))";
+const bannerHeight = "calc(100vh - var(--ifm-navbar-height) - 126px)";
 
 function IntroCard({
   img,
@@ -180,7 +181,7 @@ export default function Home() {
         <div className={cssBannerMain} />
       </div>
       <Box
-        pt={10}
+        pt={3}
         pb={10}
         gap={3}
         display="flex"
@@ -188,6 +189,37 @@ export default function Home() {
         alignItems="flex-center"
         sx={{ background: `url(${commonBg})`, backgroundSize: "cover" }}
       >
+        <Box
+          width="fit-content"
+          bgcolor="var(--text-bg)"
+          borderRadius={4}
+          margin="auto"
+          pt={3}
+          pb={4}
+          pr={2}
+          pl={2}
+          gap={4}
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Box display="flex" gap={1} alignItems="center">
+            <CalendarToday />
+            <Typography component="div">{"2021 10/15, 10/16"}</Typography>
+          </Box>
+          <Button variant="contained" disabled>
+            <Box display="flex" flexDirection="column">
+              <Typography variant="inherit">{"馬上加入"}</Typography>
+              <Typography
+                className={css`
+                  font-size: 0.5em;
+                `}
+              >
+                {"敬請期待"}
+              </Typography>
+            </Box>
+          </Button>
+        </Box>
         <Container>
           <Box
             gap={3}
