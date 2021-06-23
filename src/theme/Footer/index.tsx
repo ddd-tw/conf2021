@@ -21,6 +21,7 @@ import React from "react";
 const cssFooter = css`
   label: Footer;
   background: var(--ifm-navbar-background-color);
+  color: var(--ifm-color-gray-100);
   display: flex;
   flex-direction: column;
   align-items: center;

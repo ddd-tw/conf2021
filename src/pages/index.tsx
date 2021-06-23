@@ -2,6 +2,7 @@ import mainBg from "!file-loader!./mainBg.svg";
 import wave from "!file-loader!./wave.svg";
 import commonBg from "!file-loader!@site/src/bg/common.svg";
 import Link from "@docusaurus/Link";
+import Translate from "@docusaurus/Translate";
 import { css, keyframes } from "@emotion/css";
 import {
   Box,
@@ -13,7 +14,7 @@ import {
 import { CalendarToday } from "@material-ui/icons";
 import Layout from "@site/src/component/Layout";
 import Image from "@theme/IdealImage";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useMemo } from "react";
 
 const bannerHeight = "calc(100vh - var(--ifm-navbar-height) - 126px)";
 
@@ -158,8 +159,10 @@ const cssBannerMain = css`
   label: Main;
   width: 100%;
   aspect-ratio: 3900 / 2300;
-  max-height: max(300px, ${bannerHeight});
-  max-width: calc(${bannerHeight} * 3900 / 2300);
+  --height: max(300px, min(500px, ${bannerHeight}));
+  /* max-height: min(${bannerHeight}, 500px);
+  min-height: 300px; */
+  max-width: min(calc(var(--height) * 3900 / 2300), 100%);
   background: url(${mainBg});
   margin: auto;
   position: relative;
@@ -215,19 +218,28 @@ export default function Home() {
               className={css`
                 // ssr issue
                 &:disabled {
-                  color: rgba(255, 255, 255, 0.3);
-                  background-color: rgba(255, 255, 255, 0.12);
+                  color: rgba(0, 0, 0, 0.3);
+                  background-color: rgba(0, 0, 0, 0.12);
+
+                  html[data-theme="dark"] & {
+                    color: rgba(255, 255, 255, 0.3);
+                    background-color: rgba(255, 255, 255, 0.12);
+                  }
                 }
               `}
             >
               <Box display="flex" flexDirection="column">
-                <Typography variant="inherit">{"即刻加入"}</Typography>
+                <Typography variant="inherit">
+                  <Translate>{"Join Now"}</Translate>
+                </Typography>
                 <Typography
                   className={css`
-                    font-size: 0.5em;
+                    font-size: 0.875em;
+                    text-transform: none;
+                    color: #f00;
                   `}
                 >
-                  {"敬請期待"}
+                  <Translate>{"Coming soon"}</Translate>
                 </Typography>
               </Box>
             </Button>
@@ -241,44 +253,69 @@ export default function Home() {
             flexWrap="wrap"
             justifyContent="center"
             alignItems="stretch"
-            sx={{
-              [theme.breakpoints.down("md")]: {
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 5,
-              },
-              "&>*": {
-                flex: 1,
-                height: "100%",
-                minWidth: "min(360px, 100%)",
-              },
-            }}
+            sx={useMemo(
+              () => ({
+                [theme.breakpoints.down("md")]: {
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 5,
+                },
+                "&>*": {
+                  flex: 1,
+                  height: "100%",
+                  minWidth: "min(360px, 100%)",
+                },
+              }),
+              [theme.breakpoints]
+            )}
           >
             <IntroCard
               img={require("./aboutUs.png")}
-              title="關於我們"
-              content="Domain Driven Design Taiwan(DDD Taiwan) 是一個鼓勵所有熱愛解決問題的大家一起群體共創的地方，在這裡我們將試著進行更多的交流活動，一起探索從 Problem Domain 去催生出 Solution Domain。"
-            />
-            <IntroCard
-              img={require("./pastYear.png")}
-              title="2020 年會"
+              title={<Translate>{"About Us"}</Translate>}
               content={
                 <>
                   <Typography>
                     {
-                      "第一屆的年會，我們的主軸會希望能讓更多人知道何謂領域驅動設計(DDD)，以及讓更多人意識到其實 DDD 真的不是只是一票技術人員寫寫程式，關注程式碼本身結構性的問題而已，所以以演講與工作坊並進的方式來進行。去年我們邀請到來自 DDD_Eu 、中國等地的講者，並且同時結合台灣對於領域驅動設計長年有研究並且有意願與大家分享的老朋友們，一起與大家共同探討這個已經出生了 10 多年的老方法能給大家帶來的新體驗與感受。"
+                      "Domain Driven Design(hereinafter called “DDD“) Taiwan  is a DDD community that has continued to devote time and effort to promoting DDD in Taiwan."
+                    }
+                  </Typography>
+                  <Typography>
+                    {
+                      "Established in 2018 by engineers who enjoy learning and sharing software knowledge. Now we are a group of DDD enthusiasts including software engineers, architects, product managers, designers and so on."
+                    }
+                  </Typography>
+                  <Typography>
+                    {
+                      "We have currently about 20 volunteers, and are growing continuously."
+                    }
+                  </Typography>
+                </>
+              }
+            />
+            <IntroCard
+              img={require("./pastYear.png")}
+              title={<Translate>{"Conference 2020"}</Translate>}
+              content={
+                <>
+                  <Typography>
+                    {
+                      "Out first conference, DDDTW 2020, was a physical meeting that aims to promote DDD in Taiwan. Through speeches and workshops, the participants perceived that DDD is not just a technical terms but also focus on business knowledge and problem solving. Last year, over 200 people joined the conference and we got speakers from Taiwan, Europe, and China, learning how DDD is implemented all over the world."
                     }
                   </Typography>
                   <Button variant="contained" component={Link} to="/conf2020">
-                    回顧 2020
+                    <Translate>{"Review 2020"}</Translate>
                   </Button>
                 </>
               }
             />
             <IntroCard
               img={require("./thisYear.png")}
-              title="今年年會"
-              content="Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah"
+              title={<Translate>{"This Year"}</Translate>}
+              content={
+                <Typography>
+                  {`This year, DDDTW 2021, we are going to invite more people with solid experience in practicing DDD in their works. We wish the participants could be encouraged, enlightened, and enchanted by true stories in the industries. The conference has two day, one day for offline workshops, one day for online speeches. Let's follow the footprints of the pioneers from all over the world and "Tackling Complexity in the Heart of Software".`}
+                </Typography>
+              }
             />
           </Box>
         </Container>

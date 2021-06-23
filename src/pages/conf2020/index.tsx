@@ -1,6 +1,8 @@
 import bg from "!file-loader!./bg.svg";
 import commonBg from "!file-loader!@site/src/bg/common.svg";
+import { OpenInNew } from ".pnpm/@material-ui+icons@5.0.0-alpha.37_2dfd7b75e581d7ae5b28282a038747f7/node_modules/@material-ui/icons";
 import Link from "@docusaurus/Link";
+import Translate, { translate } from "@docusaurus/Translate";
 import { css } from "@emotion/css";
 import {
   Box,
@@ -19,9 +21,9 @@ import Rocket from "@site/src/icon/Rocket";
 import throttle from "lodash/throttle";
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 
-const title = "回顧 2020";
+const title = translate({ message: "Review 2020" });
 const description =
-  "第一屆的年會，我們的主軸會希望能讓更多人知道何謂領域驅動設計(DDD)，以及讓更多人意識到其實 DDD 真的不是只是一票技術人員寫寫程式，關注程式碼本身結構性的問題而已，所以以演講與工作坊並進的方式來進行。去年我們邀請到來自 DDD_Eu 、中國等地的講者，並且同時結合台灣對於領域驅動設計長年有研究並且有意願與大家分享的老朋友們，一起與大家共同探討這個已經出生了 10 多年的老方法能給大家帶來的新體驗與感受。";
+  "Out first conference, DDDTW 2020, was a physical meeting that aims to promote DDD in Taiwan. Through speeches and workshops, the participants perceived that DDD is not just a technical terms but also focus on business knowledge and problem solving. Last year, over 200 people joined the conference and we got speakers from Taiwan, Europe, and China, learning how DDD is implemented all over the world.";
 
 const breakingWidth = 640;
 
@@ -34,7 +36,7 @@ const cssSplash = css`
 
 const cssTabLabel = css`
   label: TabLabel;
-  text-align: left;
+  text-align: right;
 `;
 
 const cssContainerNoPadding = css`
@@ -142,7 +144,7 @@ export default memo(() => {
                       <div className={cssTabLabel}>
                         {"Day 1"}
                         <br />
-                        {"演講"}
+                        <Translate>{"Speeches"}</Translate>
                       </div>
                     }
                   />
@@ -151,7 +153,7 @@ export default memo(() => {
                       <div className={cssTabLabel}>
                         {"Day 2"}
                         <br />
-                        {"工作坊"}
+                        <Translate>{"Workshops"}</Translate>
                       </div>
                     }
                   />
@@ -198,9 +200,10 @@ export default memo(() => {
               className={cssBackLink}
               component={A}
               href="https://conf2020.ddd-tw.com"
+              endIcon={<OpenInNew />}
             >
-              <Typography variant="h4" component="span">
-                回到 2020
+              <Typography variant="h6" component="span">
+                <Translate>{"Conference 2020 Official Site"}</Translate>
               </Typography>
             </Button>
             <FootPrintsVertical size={5} />
@@ -221,7 +224,7 @@ export default memo(() => {
               >
                 <Rocket fontSize="inherit" />
                 <Typography variant="h3" component="span">
-                  前進 2021
+                  <Translate>{"Forward 2021"}</Translate>
                 </Typography>
               </Box>
             </Button>
