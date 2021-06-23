@@ -36,10 +36,10 @@ module.exports = {
           label: "Review 2020",
           position: "right",
         },
-        {
-          type: "localeDropdown",
-          position: "right",
-        },
+        // {
+        //   type: "localeDropdown",
+        //   position: "right",
+        // },
         // { to: "/speakers", label: "講者介紹", position: "right" },
         // { to: "/agenda", label: "議程", position: "right" },
         // { to: "/workshop", label: "工作坊", position: "right" },
